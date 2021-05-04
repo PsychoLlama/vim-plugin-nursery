@@ -1,3 +1,8 @@
+/**
+ * This file contains vim plugins that are critical to my workflow but haven't
+ * yet made it into nixpkgs.
+ */
+
 module.exports = [
   // TODO: Put these in nixpkgs.
   'PsychoLlama/further.vim',

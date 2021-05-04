@@ -24,4 +24,4 @@ let
   pluginList = map vimPluginFromDefinition pluginManifest;
 
 # Map plugins to a set of: { plugin-name => plugin }
-in builtins.foldl' (pluginSet: plugin: pluginSet // { ${plugin.pname} = plugin; }) {} pluginList
+in pkgs.vimPlugins // builtins.foldl' (pluginSet: plugin: pluginSet // { ${plugin.pname} = plugin; }) {} pluginList
