@@ -1,27 +1,10 @@
-{ pkgs ? import <nixpkgs> {} }:
-
-with pkgs;
+config@{ pkgs ? import <nixpkgs> config }:
 
 let
-  pluginManifest =
-    let lockfile = builtins.fromJSON (builtins.readFile ./lockfile.json);
-    in lockfile.plugins;
+  standardPlugins = pkgs.vimPlugins;
+  thirdPartyPlugins = import ./3rd-party config;
+  nursery = import ./nursery config;
+  extraPlugins = thirdPartyPlugins ++ nursery;
+  addPlugin = plugins: plugin: plugins // { ${plugin.pname} = plugin; };
 
-    vimPluginFromDefinition = plugin: vimUtils.buildVimPluginFrom2Nix {
-      pname = builtins.replaceStrings ["."] ["-"] plugin.repo;
-      version = plugin.version;
-      meta.homepage = plugin.homepage;
-
-      src = fetchFromGitHub {
-        owner = plugin.owner;
-        repo = plugin.repo;
-        rev = plugin.rev;
-        sha256 = plugin.hash;
-        fetchSubmodules = true;
-      };
-    };
-
-  pluginList = map vimPluginFromDefinition pluginManifest;
-
-# Map plugins to a set of: { plugin-name => plugin }
-in pkgs.vimPlugins // builtins.foldl' (pluginSet: plugin: pluginSet // { ${plugin.pname} = plugin; }) {} pluginList
+in builtins.foldl' addPlugin standardPlugins extraPlugins
