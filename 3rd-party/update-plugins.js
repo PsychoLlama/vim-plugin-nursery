@@ -134,4 +134,7 @@ function formatDateAsVersion(commitDate) {
   return commitDate.replace(/T.*/, '');
 }
 
-main();
+main().catch(error => {
+  console.error(error);
+  process.exit(1);
+});
