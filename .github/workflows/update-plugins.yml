@@ -1,0 +1,11 @@
+name: Update Plugins
+on: push
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    container:
+      image: nixos/nix:latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: nix-shell 3rd-party/shell.nix --command ./bin/update-plugins.sh
