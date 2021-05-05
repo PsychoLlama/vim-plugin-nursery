@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+config@{ pkgs ? import <nixpkgs> config }:
 
 let
   plugins =

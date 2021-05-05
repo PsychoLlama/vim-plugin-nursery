@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+config@{ pkgs ? import <nixpkgs> config }:
 
 # Everything necessary to run ./update-plugins.js and generate the lockfile.
 pkgs.mkShell {
