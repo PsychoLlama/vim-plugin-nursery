@@ -70,8 +70,8 @@ async function pinAllPluginVersions(plugins) {
 }
 
 async function pinPluginVersion(plugin) {
-  const repository = `git@${plugin.domain}:${plugin.owner}/${plugin.repo}.git`;
   const homepage = `https://${plugin.domain}/${plugin.owner}/${plugin.repo}`;
+  const repository = `${homepage}.git`;
   const { sha256, date, rev, url } = await prefetch(repository);
   const { owner, repo } = plugin;
 
