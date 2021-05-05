@@ -17,6 +17,9 @@ jobs:
         with:
           neovim: ${{ matrix.editor == 'neovim' }}
       - uses: PsychoLlama/vader-action@v1
+        with:
+          plugins: 'nursery/*/'
+          neovim: ${{ matrix.editor == 'neovim' }}
 
   lint:
     name: Vint
