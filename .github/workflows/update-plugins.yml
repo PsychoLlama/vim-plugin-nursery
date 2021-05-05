@@ -7,5 +7,9 @@ jobs:
     container:
       image: nixos/nix:latest
     steps:
+      - run: nix-env --install git
       - uses: actions/checkout@v2
-      - run: nix-shell 3rd-party/shell.nix --command ./bin/update-plugins.sh
+        with:
+          fetch-depth: 0
+      - run: nix-shell 3rd-party/shell.nix --command ./3rd-party/update-plugins.js
+      - run: ./bin/commit-lockfile-changes
