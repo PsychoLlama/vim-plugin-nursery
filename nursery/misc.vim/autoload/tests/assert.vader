@@ -1,0 +1,8 @@
+# Note: This is tested purely to add >0% coverage. Assertion utilities are
+# being phased out in favor of early returns and colored echo messages.
+Execute (falsey values throw exceptions):
+  AssertThrows assert#(v:false, 'message')
+  AssertThrows assert#(v:null, 'message')
+  AssertThrows assert#('', 'message')
+  AssertThrows assert#(0, 'message')
+  AssertEqual 'truthy', assert#('truthy', 'message')

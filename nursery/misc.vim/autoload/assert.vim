@@ -26,6 +26,8 @@ func! assert#(value, message) abort
   if !s:coerce_to_bool(a:value)
     throw a:message
   endif
+
+  return a:value
 endfunc
 
 " Throw if the value isn't the expected type.
