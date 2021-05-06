@@ -1,5 +1,9 @@
 name: Update Plugins
-on: push
+on:
+  push:
+    branches: main
+  schedule:
+    - cron: '0 5 * * 1' # Every Monday at 5am
 
 jobs:
   update:
