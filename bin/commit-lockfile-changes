@@ -1,3 +1,33 @@
 #!/usr/bin/env sh
-ls -lah
-git status
+lockfile="$PWD/3rd-party/lockfile.json"
+
+if git diff --quiet HEAD -- "$lockfile"; then
+  echo 'Lockfile had no changes. Exiting.' > /dev/stderr
+  exit 0
+fi
+
+git config user.name 'Lockfile Bot'
+git config user.email 'JesseTheGibson+ghbot@gmail.com'
+
+git add -- ./3rd-party/lockfile.json
+git commit --message '[bot] Update plugin lockfile
+
+The lockfile was regenerated because 3rd party plugins were updated.
+This commit was made automatically.'
+
+if tty > /dev/null; then
+  # shellcheck disable=SC2162,SC3045
+  read -p 'Push changes? [y/n] ' choice
+
+  if [ "$choice" != y ]; then
+    echo 'Quitting.' > /dev/stdout
+    exit 1
+  fi
+
+  echo 'Pushing changes.' > /dev/stderr
+else
+  # HTTPS authentication provided via GH Actions.
+  git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/PsychoLlama/vim-plugin-nursery"
+fi
+
+git push origin main

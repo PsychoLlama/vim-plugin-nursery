@@ -6,6 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: nixos/nix:latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - run: nix-env --install git
       - uses: actions/checkout@v2
