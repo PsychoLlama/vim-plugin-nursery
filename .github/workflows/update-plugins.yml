@@ -1,0 +1,17 @@
+name: Update Plugins
+on: push
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    container:
+      image: nixos/nix:latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - run: nix-env --install git
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: nix-shell 3rd-party/shell.nix --command ./3rd-party/update-plugins.js
+      - run: ./bin/commit-lockfile-changes
