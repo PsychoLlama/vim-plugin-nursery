@@ -2,6 +2,7 @@ name: Update Plugins
 on:
   push:
     branches: main
+    paths: '3rd-party/**'
   schedule:
     - cron: '0 5 * * 1' # Every Monday at 5am
 
