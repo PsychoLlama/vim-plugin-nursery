@@ -35,5 +35,5 @@ The flake lockfile updates every Monday.
 **vim-plug**
 
 ```vim
-Plug 'PsychoLlama/vim-plugin-nursery', { 'rtp': 'nursery/{plugin-name}.vim' }
+Plug 'PsychoLlama/vim-plugin-nursery', { 'rtp': 'plugins/{plugin-name}.vim' }
 ```

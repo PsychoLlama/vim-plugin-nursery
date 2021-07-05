@@ -55,22 +55,22 @@
     # --- Nursery ---
 
     clippy-nvim = {
-      url = "path:nursery/clippy.nvim";
+      url = "path:plugins/clippy.nvim";
       flake = false;
     };
 
     git-vim = {
-      url = "path:nursery/git.vim";
+      url = "path:plugins/git.vim";
       flake = false;
     };
 
     misc-vim = {
-      url = "path:nursery/misc.vim";
+      url = "path:plugins/misc.vim";
       flake = false;
     };
 
     stacktrace-vim = {
-      url = "path:nursery/stacktrace.vim";
+      url = "path:plugins/stacktrace.vim";
       flake = false;
     };
   };
