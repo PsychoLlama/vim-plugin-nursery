@@ -18,16 +18,24 @@ The flake lockfile updates every Monday.
 {
   inputs.nursery.url = "github:PsychoLlama/vim-plugin-nursery/main";
 
-  outputs = { nursery, nixpkgs }:
+  outputs = { self, nursery, nixpkgs }:
 
-  # Optional: The overlay adds all plugins from the nursery to nixpkgs.vimPlugins.
-  with import nixpkgs { overlays = [nursery.overlay]; };
+  let system = "x86_64-linux";
+  in with import nixpkgs {
+    overlays = [nursery.overlay];
+    inherit system;
+  };
 
-  defaultPackage.${system} = neovim.override {
-    packages.personal.start = [
-      vimPlugins.further-vim
-      nursery.packages.${system}.stacktrace-vim
-    ];
+  {
+    defaultPackage.${system} = neovim.override {
+      configure.packages.personal.start = [
+        # Optional: The overlay adds all plugins from the nursery to nixpkgs.vimPlugins.
+        vimPlugins.further-vim
+
+        # Or, pull them off `packages` instead.
+        nursery.packages.${system}.stacktrace-vim
+      ];
+    };
   };
 }
 ```
