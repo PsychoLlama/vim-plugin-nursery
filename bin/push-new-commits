@@ -1,19 +1,13 @@
 #!/usr/bin/env sh
 lockfile="$PWD/3rd-party/lockfile.json"
 
-if git diff --quiet HEAD -- "$lockfile"; then
+if git diff --quiet origin/main..HEAD -- "$lockfile"; then
   echo 'Lockfile had no changes. Exiting.' > /dev/stderr
   exit 0
 fi
 
 git config user.name 'Lockfile Bot'
 git config user.email 'JesseTheGibson+ghbot@gmail.com'
-
-git add -- ./3rd-party/lockfile.json
-git commit --message '[bot] Update plugin lockfile
-
-The lockfile was regenerated because 3rd party plugins were updated.
-This commit was made automatically.'
 
 if tty > /dev/null; then
   # shellcheck disable=SC2162,SC3045
