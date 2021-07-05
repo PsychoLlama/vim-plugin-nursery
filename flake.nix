@@ -108,5 +108,9 @@
       "armv7l-linux" = null;
       "aarch64-darwin" = null;
     };
+
+    overlay = final: prev: {
+      vimPlugins = prev.vimPlugins // self.packages.${final.system};
+    };
   };
 }
