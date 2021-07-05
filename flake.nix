@@ -51,12 +51,34 @@
       url = "github:PsychoLlama/navitron.vim";
       flake = false;
     };
+
+    # --- Nursery ---
+
+    clippy-nvim = {
+      url = "path:nursery/clippy.nvim";
+      flake = false;
+    };
+
+    git-vim = {
+      url = "path:nursery/git.vim";
+      flake = false;
+    };
+
+    misc-vim = {
+      url = "path:nursery/misc.vim";
+      flake = false;
+    };
+
+    stacktrace-vim = {
+      url = "path:nursery/stacktrace.vim";
+      flake = false;
+    };
   };
 
   outputs = {
     self, nixpkgs, further-vim, teleport-vim, alternaut-vim,
     vim-nand2tetris, yajs-vim, nginx-vim, vim-jsx, godown-vim,
-    navitron-vim,
+    navitron-vim, clippy-nvim, git-vim, misc-vim, stacktrace-vim,
   }:
 
   let
@@ -67,12 +89,13 @@
     buildAllPlugins = system: _: builtins.mapAttrs
       (pluginName: plugin: buildPlugin system {
         pname = pluginName;
-        version = plugin.rev;
+        version = plugin.rev or self.rev or "dirty";
         src = plugin;
       })
       {
         inherit further-vim teleport-vim alternaut-vim vim-nand2tetris;
         inherit yajs-vim nginx-vim vim-jsx godown-vim navitron-vim;
+        inherit clippy-nvim git-vim misc-vim stacktrace-vim;
       };
 
   in {
