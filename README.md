@@ -12,6 +12,8 @@ The flake lockfile updates every Monday.
 
 ## Usage
 
+**Nix**
+
 ```nix
 {
   inputs.nursery.url = "github:PsychoLlama/vim-plugin-nursery/main";
@@ -28,4 +30,10 @@ The flake lockfile updates every Monday.
     ];
   };
 }
+```
+
+**vim-plug**
+
+```vim
+Plug 'PsychoLlama/vim-plugin-nursery', { 'rtp': 'nursery/{plugin-name}.vim' }
 ```
