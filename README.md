@@ -4,31 +4,36 @@ A custom nix channel serving experimental vim plugins.
 ## Purpose
 One of my few joys is writing vim plugins, but not every idea is a good one. I need a place to experiment without fully committing to a new repository.
 
-Additionally, this functions as a custom [nix](https://nixos.org/) channel serving my vim plugins. The less polished ones don't belong in [nixpkgs](https://github.com/NixOS/nixpkgs) yet.
+Plugins are distributed through a [Nix flake](https://nixos.wiki/wiki/Flakes). I guess you could also install them through vim-plug, but remember it's called "vim-plugin-nursery" - they're all alpha quality.
 
-I also have a few plugins listed in the channel that haven't been added to nixpkgs yet (e.g. they're unmaintained, not ready for public use, or lesser-known plugins). They automatically refresh every week. It enables me to instantly add plugins to my vimrc without waiting on PRs to nixpkgs or manually updating hashes.
+Additionally, this repo serves as a place to build plugins that haven't made their way into [nixpkgs](https://github.com/NixOS/nixpkgs) yet. I should add them upstream instead. Meh.
 
-Feel free to copy anything that looks interesting, but be warned that the plugins are mostly alpha quality.
+The flake lockfile updates every Monday.
 
 ## Usage
-Add a custom nix channel:
 
-```sh
-nix-channel --add https://github.com/PsychoLlama/vim-plugin-nursery/archive/main.tar.gz vim-plugins
-nix-channel --update vim-plugins
-```
-
-Then you can use it in your nix file:
+**Nix**
 
 ```nix
-let vim-plugins = import <vim-plugins> {};
+{
+  inputs.nursery.url = "github:PsychoLlama/vim-plugin-nursery/main";
 
-in neovim.override {
-  packages.personal.start = [ vim-plugins.yourCustomPlugin ];
+  outputs = { nursery, nixpkgs }:
+
+  # Optional: The overlay adds all plugins from the nursery to nixpkgs.vimPlugins.
+  with import nixpkgs { overlays = [nursery.overlay]; };
+
+  defaultPackage.${system} = neovim.override {
+    packages.personal.start = [
+      vimPlugins.further-vim
+      nursery.packages.${system}.stacktrace-vim
+    ];
+  };
 }
 ```
 
-## Adding 3rd-Party Plugins
-See [`3rd-party/plugin-names.js`](https://github.com/PsychoLlama/vim-plugin-nursery/blob/main/3rd-party/plugin-names.js). Anything added to the list is automatically generated and placed in the lockfile, which is how the nix channel gets pinned hashes and revisions. There's a cron job that refreshes them every week.
+**vim-plug**
 
-**Note:** I'm not accepting contributions. If you want to add your own plugins, I suggest a fork.
+```vim
+Plug 'PsychoLlama/vim-plugin-nursery', { 'rtp': 'plugins/{plugin-name}.vim' }
+```

@@ -14,9 +14,13 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - run: nix-env --install git
+      - run: nix-env --install --attr nixpkgs.nixUnstable nixpkgs.git
+      - run: |
+          tee -a /etc/nix/nix.conf << EOF
+          experimental-features = nix-command flakes
+          EOF
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - run: nix-shell 3rd-party/shell.nix --command ./3rd-party/update-plugins.js
-      - run: ./bin/commit-lockfile-changes
+      - run: nix flake update --commit-lock-file
+      - run: ./bin/push-new-commits
