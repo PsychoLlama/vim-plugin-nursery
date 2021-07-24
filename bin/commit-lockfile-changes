@@ -1,13 +1,12 @@
 #!/usr/bin/env sh
-lockfile="$PWD/3rd-party/lockfile.json"
+git config user.name 'Lockfile Bot'
+git config user.email 'JesseTheGibson+ghbot@gmail.com'
+nix flake update --commit-lock-file
 
-if git diff --quiet origin/main..HEAD -- "$lockfile"; then
+if git diff --quiet origin/main..HEAD -- flake.lock; then
   echo 'Lockfile had no changes. Exiting.' > /dev/stderr
   exit 0
 fi
-
-git config user.name 'Lockfile Bot'
-git config user.email 'JesseTheGibson+ghbot@gmail.com'
 
 if tty > /dev/null; then
   # shellcheck disable=SC2162,SC3045

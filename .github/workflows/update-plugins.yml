@@ -22,5 +22,4 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - run: nix flake update --commit-lock-file
-      - run: ./bin/push-new-commits
+      - run: ./bin/commit-lockfile-changes
