@@ -75,42 +75,40 @@
     };
   };
 
-  outputs = {
-    self, nixpkgs, further-vim, teleport-vim, alternaut-vim,
-    vim-nand2tetris, yajs-vim, nginx-vim, vim-jsx, godown-vim,
-    navitron-vim, clippy-nvim, git-vim, misc-vim, stacktrace-vim,
-  }:
+  outputs = { self, nixpkgs, further-vim, teleport-vim, alternaut-vim
+    , vim-nand2tetris, yajs-vim, nginx-vim, vim-jsx, godown-vim, navitron-vim
+    , clippy-nvim, git-vim, misc-vim, stacktrace-vim }:
 
-  let
-    buildPlugin = system: plugin:
-      let inherit (nixpkgs.legacyPackages.${system}) vimUtils;
-      in vimUtils.buildVimPluginFrom2Nix plugin;
+    let
+      buildPlugin = system: plugin:
+        let inherit (nixpkgs.legacyPackages.${system}) vimUtils;
+        in vimUtils.buildVimPluginFrom2Nix plugin;
 
-    buildAllPlugins = system: _: builtins.mapAttrs
-      (pluginName: plugin: buildPlugin system {
-        pname = pluginName;
-        version = plugin.rev or self.rev or "dirty";
-        src = plugin;
-      })
-      {
-        inherit further-vim teleport-vim alternaut-vim vim-nand2tetris;
-        inherit yajs-vim nginx-vim vim-jsx godown-vim navitron-vim;
-        inherit clippy-nvim git-vim misc-vim stacktrace-vim;
+      buildAllPlugins = system: _:
+        builtins.mapAttrs (pluginName: plugin:
+          buildPlugin system {
+            pname = pluginName;
+            version = plugin.rev or self.rev or "dirty";
+            src = plugin;
+          }) {
+            inherit further-vim teleport-vim alternaut-vim vim-nand2tetris;
+            inherit yajs-vim nginx-vim vim-jsx godown-vim navitron-vim;
+            inherit clippy-nvim git-vim misc-vim stacktrace-vim;
+          };
+
+    in {
+      packages = builtins.mapAttrs buildAllPlugins {
+        "x86_64-linux" = null;
+        "i686-linux" = null;
+        "x86_64-darwin" = null;
+        "aarch64-linux" = null;
+        "armv6l-linux" = null;
+        "armv7l-linux" = null;
+        "aarch64-darwin" = null;
       };
 
-  in {
-    packages = builtins.mapAttrs buildAllPlugins {
-      "x86_64-linux" = null;
-      "i686-linux" = null;
-      "x86_64-darwin" = null;
-      "aarch64-linux" = null;
-      "armv6l-linux" = null;
-      "armv7l-linux" = null;
-      "aarch64-darwin" = null;
+      overlay = final: prev: {
+        vimPlugins = prev.vimPlugins // self.packages.${final.system};
+      };
     };
-
-    overlay = final: prev: {
-      vimPlugins = prev.vimPlugins // self.packages.${final.system};
-    };
-  };
 }
