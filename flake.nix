@@ -54,11 +54,6 @@
 
     # --- Nursery ---
 
-    clippy-nvim = {
-      url = "path:plugins/clippy.nvim";
-      flake = false;
-    };
-
     git-vim = {
       url = "path:plugins/git.vim";
       flake = false;
@@ -77,7 +72,7 @@
 
   outputs = { self, nixpkgs, further-vim, teleport-vim, alternaut-vim
     , vim-nand2tetris, yajs-vim, nginx-vim, vim-jsx, godown-vim, navitron-vim
-    , clippy-nvim, git-vim, misc-vim, stacktrace-vim }:
+    , git-vim, misc-vim, stacktrace-vim }:
 
     let
       buildPlugin = system: plugin:
@@ -93,7 +88,7 @@
           }) {
             inherit further-vim teleport-vim alternaut-vim vim-nand2tetris;
             inherit yajs-vim nginx-vim vim-jsx godown-vim navitron-vim;
-            inherit clippy-nvim git-vim misc-vim stacktrace-vim;
+            inherit git-vim misc-vim stacktrace-vim;
           };
 
     in {

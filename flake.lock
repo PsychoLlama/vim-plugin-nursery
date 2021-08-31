@@ -17,18 +17,6 @@
         "type": "github"
       }
     },
-    "clippy-nvim": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-yjMizAaA8qZwlci0iU3V3U7SkwIpnqfRhguDhSDvQ4w=",
-        "path": "plugins/clippy.nvim",
-        "type": "path"
-      },
-      "original": {
-        "path": "plugins/clippy.nvim",
-        "type": "path"
-      }
-    },
     "further-vim": {
       "flake": false,
       "locked": {
@@ -137,7 +125,6 @@
     "root": {
       "inputs": {
         "alternaut-vim": "alternaut-vim",
-        "clippy-nvim": "clippy-nvim",
         "further-vim": "further-vim",
         "git-vim": "git-vim",
         "godown-vim": "godown-vim",
