@@ -93,11 +93,11 @@
     "nginx-vim": {
       "flake": false,
       "locked": {
-        "lastModified": 1614287708,
-        "narHash": "sha256-/hvf+Lo8j1ZoW6QOO6LbJJrXG4aHAotM6j5/9kifwwI=",
+        "lastModified": 1633281202,
+        "narHash": "sha256-7GYNhnoTx7y+xo9dkfaO8KCM7StPFY8P1ldTFD9pGZ0=",
         "owner": "chr4",
         "repo": "nginx.vim",
-        "rev": "7b8e3ef48d8e60fe64bb1a85be52e66dd412c84d",
+        "rev": "ceeab164880ad90e73ab1be31dc3932777b9ef20",
         "type": "github"
       },
       "original": {
@@ -108,11 +108,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1632715147,
-        "narHash": "sha256-ho2Rovs/n3XpDqhDAos1Vv7mz9dOY5nrqsEuWByo5eE=",
+        "lastModified": 1633318314,
+        "narHash": "sha256-VLRWk6yXpJ+a5jB8cgkX/lD2qs8mjAUWMNiaFrK28eI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f9c7333bce5312e88795fb1f22b6191b93f45b07",
+        "rev": "3c5ac430cad48050d5246053c7004aa5bc3d3148",
         "type": "github"
       },
       "original": {
