@@ -38,11 +38,11 @@
       "flake": false,
       "locked": {
         "narHash": "sha256-jb/CApvgY1o/HYNjTJhHdPPtXOUdsJ+qYwb6lQkxVNI=",
-        "path": "plugins/git.vim",
+        "path": "./plugins/git.vim",
         "type": "path"
       },
       "original": {
-        "path": "plugins/git.vim",
+        "path": "./plugins/git.vim",
         "type": "path"
       }
     },
@@ -66,11 +66,11 @@
       "flake": false,
       "locked": {
         "narHash": "sha256-+LbFcGEkIziLS+XpLhlDByGNN9ltN9msgfb/jMLNVuA=",
-        "path": "plugins/misc.vim",
+        "path": "./plugins/misc.vim",
         "type": "path"
       },
       "original": {
-        "path": "plugins/misc.vim",
+        "path": "./plugins/misc.vim",
         "type": "path"
       }
     },
@@ -143,11 +143,11 @@
       "flake": false,
       "locked": {
         "narHash": "sha256-dLDvOTqlU9HvDW191BiMU6089Ah5xwB7rKR2oPsQsCk=",
-        "path": "plugins/stacktrace.vim",
+        "path": "./plugins/stacktrace.vim",
         "type": "path"
       },
       "original": {
-        "path": "plugins/stacktrace.vim",
+        "path": "./plugins/stacktrace.vim",
         "type": "path"
       }
     },

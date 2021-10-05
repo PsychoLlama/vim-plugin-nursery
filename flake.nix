@@ -55,17 +55,17 @@
     # --- Nursery ---
 
     git-vim = {
-      url = "path:plugins/git.vim";
+      url = "path:./plugins/git.vim";
       flake = false;
     };
 
     misc-vim = {
-      url = "path:plugins/misc.vim";
+      url = "path:./plugins/misc.vim";
       flake = false;
     };
 
     stacktrace-vim = {
-      url = "path:plugins/stacktrace.vim";
+      url = "path:./plugins/stacktrace.vim";
       flake = false;
     };
   };
