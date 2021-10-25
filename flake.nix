@@ -40,12 +40,6 @@
       flake = false;
     };
 
-    # TODO: Find a better markdown previewer.
-    godown-vim = {
-      url = "github:davinche/godown-vim";
-      flake = false;
-    };
-
     # TODO: Make this plugin less shameful.
     navitron-vim = {
       url = "github:PsychoLlama/navitron.vim";
@@ -71,8 +65,8 @@
   };
 
   outputs = { self, nixpkgs, further-vim, teleport-vim, alternaut-vim
-    , vim-nand2tetris, yajs-vim, nginx-vim, vim-jsx, godown-vim, navitron-vim
-    , git-vim, misc-vim, stacktrace-vim }:
+    , vim-nand2tetris, yajs-vim, nginx-vim, vim-jsx, navitron-vim, git-vim
+    , misc-vim, stacktrace-vim }:
 
     let
       buildPlugin = system: plugin:
@@ -87,8 +81,8 @@
             src = plugin;
           }) {
             inherit further-vim teleport-vim alternaut-vim vim-nand2tetris;
-            inherit yajs-vim nginx-vim vim-jsx godown-vim navitron-vim;
-            inherit git-vim misc-vim stacktrace-vim;
+            inherit yajs-vim nginx-vim vim-jsx navitron-vim git-vim;
+            inherit misc-vim stacktrace-vim;
           };
 
     in {
