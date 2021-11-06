@@ -58,22 +58,6 @@
         "type": "path"
       }
     },
-    "navitron-vim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1609278061,
-        "narHash": "sha256-B/w3FSsoSgL2m+0JhI4XM6o3+K0L+5EQOaDWhqCjVUk=",
-        "owner": "PsychoLlama",
-        "repo": "navitron.vim",
-        "rev": "4f7b319f425a4959f2b8bfe1f2cb08beb6937362",
-        "type": "github"
-      },
-      "original": {
-        "owner": "PsychoLlama",
-        "repo": "navitron.vim",
-        "type": "github"
-      }
-    },
     "nginx-vim": {
       "flake": false,
       "locked": {
@@ -112,15 +96,12 @@
         "further-vim": "further-vim",
         "git-vim": "git-vim",
         "misc-vim": "misc-vim",
-        "navitron-vim": "navitron-vim",
         "nginx-vim": "nginx-vim",
         "nixpkgs": "nixpkgs",
         "stacktrace-vim": "stacktrace-vim",
         "teleport-vim": "teleport-vim",
         "unison-vim": "unison-vim",
-        "vim-jsx": "vim-jsx",
-        "vim-nand2tetris": "vim-nand2tetris",
-        "yajs-vim": "yajs-vim"
+        "vim-nand2tetris": "vim-nand2tetris"
       }
     },
     "stacktrace-vim": {
@@ -168,22 +149,6 @@
         "type": "github"
       }
     },
-    "vim-jsx": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1569784850,
-        "narHash": "sha256-jT1WSAbRJsqF08Nr6LTEX2Vmi8UUtT4rX4fLeTyN8jM=",
-        "owner": "mxw",
-        "repo": "vim-jsx",
-        "rev": "8879e0d9c5ba0e04ecbede1c89f63b7a0efa24af",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mxw",
-        "repo": "vim-jsx",
-        "type": "github"
-      }
-    },
     "vim-nand2tetris": {
       "flake": false,
       "locked": {
@@ -198,22 +163,6 @@
         "owner": "sevko",
         "ref": "master",
         "repo": "vim-nand2tetris-syntax",
-        "type": "github"
-      }
-    },
-    "yajs-vim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1569233220,
-        "narHash": "sha256-gN1Ji2/ApqJRHc1FNu+N7xegifKnQpGwTIqDvSwZfpY=",
-        "owner": "othree",
-        "repo": "yajs.vim",
-        "rev": "2bebc45ce94d02875803c67033b2d294a5375064",
-        "type": "github"
-      },
-      "original": {
-        "owner": "othree",
-        "repo": "yajs.vim",
         "type": "github"
       }
     }
