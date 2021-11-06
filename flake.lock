@@ -117,6 +117,7 @@
         "nixpkgs": "nixpkgs",
         "stacktrace-vim": "stacktrace-vim",
         "teleport-vim": "teleport-vim",
+        "unison-vim": "unison-vim",
         "vim-jsx": "vim-jsx",
         "vim-nand2tetris": "vim-nand2tetris",
         "yajs-vim": "yajs-vim"
@@ -148,6 +149,22 @@
         "owner": "PsychoLlama",
         "ref": "master",
         "repo": "teleport.vim",
+        "type": "github"
+      }
+    },
+    "unison-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1636161964,
+        "narHash": "sha256-IOMljzN6JM3o94PYzSgDYr2OjWYg4mwrT3uH4hDeX2Q=",
+        "owner": "unisonweb",
+        "repo": "unison",
+        "rev": "d9f3dc923ed180c903013a3a20e4340b94b34ad7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "unisonweb",
+        "repo": "unison",
         "type": "github"
       }
     },

@@ -40,6 +40,11 @@
       flake = false;
     };
 
+    unison-vim = {
+      url = "github:unisonweb/unison";
+      flake = false;
+    };
+
     # TODO: Make this plugin less shameful.
     navitron-vim = {
       url = "github:PsychoLlama/navitron.vim";
@@ -65,8 +70,8 @@
   };
 
   outputs = { self, nixpkgs, further-vim, teleport-vim, alternaut-vim
-    , vim-nand2tetris, yajs-vim, nginx-vim, vim-jsx, navitron-vim, git-vim
-    , misc-vim, stacktrace-vim }:
+    , vim-nand2tetris, yajs-vim, nginx-vim, vim-jsx, unison-vim, navitron-vim
+    , git-vim, misc-vim, stacktrace-vim }:
 
     let
       buildPlugin = system: plugin:
@@ -83,6 +88,7 @@
             inherit further-vim teleport-vim alternaut-vim vim-nand2tetris;
             inherit yajs-vim nginx-vim vim-jsx navitron-vim git-vim;
             inherit misc-vim stacktrace-vim;
+            unison-vim = "${unison-vim}/editor-support/vim";
           };
 
     in {
