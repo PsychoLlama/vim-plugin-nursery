@@ -34,30 +34,6 @@
         "type": "github"
       }
     },
-    "git-vim": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-jb/CApvgY1o/HYNjTJhHdPPtXOUdsJ+qYwb6lQkxVNI=",
-        "path": "./plugins/git.vim",
-        "type": "path"
-      },
-      "original": {
-        "path": "./plugins/git.vim",
-        "type": "path"
-      }
-    },
-    "misc-vim": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-+LbFcGEkIziLS+XpLhlDByGNN9ltN9msgfb/jMLNVuA=",
-        "path": "./plugins/misc.vim",
-        "type": "path"
-      },
-      "original": {
-        "path": "./plugins/misc.vim",
-        "type": "path"
-      }
-    },
     "nginx-vim": {
       "flake": false,
       "locked": {
@@ -94,26 +70,11 @@
       "inputs": {
         "alternaut-vim": "alternaut-vim",
         "further-vim": "further-vim",
-        "git-vim": "git-vim",
-        "misc-vim": "misc-vim",
         "nginx-vim": "nginx-vim",
         "nixpkgs": "nixpkgs",
-        "stacktrace-vim": "stacktrace-vim",
         "teleport-vim": "teleport-vim",
         "unison-vim": "unison-vim",
         "vim-nand2tetris": "vim-nand2tetris"
-      }
-    },
-    "stacktrace-vim": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-dLDvOTqlU9HvDW191BiMU6089Ah5xwB7rKR2oPsQsCk=",
-        "path": "./plugins/stacktrace.vim",
-        "type": "path"
-      },
-      "original": {
-        "path": "./plugins/stacktrace.vim",
-        "type": "path"
       }
     },
     "teleport-vim": {

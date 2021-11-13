@@ -34,28 +34,10 @@
       url = "github:unisonweb/unison";
       flake = false;
     };
-
-    # --- Nursery ---
-
-    git-vim = {
-      url = "path:./plugins/git.vim";
-      flake = false;
-    };
-
-    misc-vim = {
-      url = "path:./plugins/misc.vim";
-      flake = false;
-    };
-
-    stacktrace-vim = {
-      url = "path:./plugins/stacktrace.vim";
-      flake = false;
-    };
   };
 
   outputs = { self, nixpkgs, further-vim, teleport-vim, alternaut-vim
-    , vim-nand2tetris, nginx-vim, unison-vim, git-vim, misc-vim, stacktrace-vim
-    }:
+    , vim-nand2tetris, nginx-vim, unison-vim }:
 
     let
       buildPlugin = system: plugin:
@@ -70,8 +52,11 @@
             src = plugin;
           }) {
             inherit further-vim teleport-vim alternaut-vim vim-nand2tetris;
-            inherit nginx-vim git-vim misc-vim stacktrace-vim;
+            inherit nginx-vim;
             unison-vim = "${unison-vim}/editor-support/vim";
+            git-vim = "${self}/plugins/git.vim";
+            misc-vim = "${self}/plugins/misc.vim";
+            stacktrace-vim = "${self}/plugins/stacktrace.vim";
           };
 
     in {
