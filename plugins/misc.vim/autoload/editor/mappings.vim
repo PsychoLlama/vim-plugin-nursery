@@ -66,19 +66,18 @@ func! editor#mappings#test() abort
   let l:cmd = 'cd ' . fnameescape(l:runner.project) . '; '
   let l:cmd .= l:runner.command
 
-  let l:tmux_vars = tmux#get_variables()
-  if str2nr(l:tmux_vars.window_panes) < 2
+  if str2nr(tmux#get_variable('window_panes')) < 2
     let l:test_pane = tmux#split_window({
           \   'horizontal': v:true,
           \   'percent': 45,
           \ })
     call tmux#send_keys(l:cmd, '^M')
   else
-    let l:test_pane = l:tmux_vars.pane_at_right
+    let l:test_pane = tmux#get_variable('pane_at_right')
     call tmux#select_pane(1)
     call tmux#send_keys('^C')
     call tmux#send_keys('^L', l:cmd, '^M')
   endif
 
-  call tmux#select_pane(l:tmux_vars.pane_id)
+  call tmux#select_pane(tmux#get_variable('pane_id'))
 endfunc
