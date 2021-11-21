@@ -34,6 +34,23 @@
         "type": "github"
       }
     },
+    "navitron-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1609278061,
+        "narHash": "sha256-B/w3FSsoSgL2m+0JhI4XM6o3+K0L+5EQOaDWhqCjVUk=",
+        "owner": "PsychoLlama",
+        "repo": "navitron.vim",
+        "rev": "4f7b319f425a4959f2b8bfe1f2cb08beb6937362",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PsychoLlama",
+        "ref": "main",
+        "repo": "navitron.vim",
+        "type": "github"
+      }
+    },
     "nginx-vim": {
       "flake": false,
       "locked": {
@@ -70,6 +87,7 @@
       "inputs": {
         "alternaut-vim": "alternaut-vim",
         "further-vim": "further-vim",
+        "navitron-nvim": "navitron-nvim",
         "nginx-vim": "nginx-vim",
         "nixpkgs": "nixpkgs",
         "teleport-vim": "teleport-vim",

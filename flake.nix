@@ -20,6 +20,11 @@
       flake = false;
     };
 
+    navitron-nvim = {
+      url = "github:PsychoLlama/navitron.vim/main";
+      flake = false;
+    };
+
     vim-nand2tetris = {
       url = "github:sevko/vim-nand2tetris-syntax/master";
       flake = false;
@@ -37,7 +42,7 @@
   };
 
   outputs = { self, nixpkgs, further-vim, teleport-vim, alternaut-vim
-    , vim-nand2tetris, nginx-vim, unison-vim }:
+    , navitron-nvim, vim-nand2tetris, nginx-vim, unison-vim }:
 
     let
       buildPlugin = system: plugin:
@@ -51,8 +56,8 @@
             version = plugin.rev or self.rev or "dirty";
             src = plugin;
           }) {
-            inherit further-vim teleport-vim alternaut-vim vim-nand2tetris;
-            inherit nginx-vim;
+            inherit further-vim teleport-vim alternaut-vim navitron-nvim
+              vim-nand2tetris nginx-vim;
             unison-vim = "${unison-vim}/editor-support/vim";
             git-vim = "${self}/plugins/git.vim";
             misc-vim = "${self}/plugins/misc.vim";
