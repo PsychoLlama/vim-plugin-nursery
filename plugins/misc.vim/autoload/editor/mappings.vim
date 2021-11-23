@@ -65,6 +65,7 @@ func! editor#mappings#test() abort
   let l:runner = editor#js#get_test_command_for_path(l:file_path)
   let l:cmd = 'cd ' . fnameescape(l:runner.project) . '; '
   let l:cmd .= l:runner.command
+  let l:code_pane = tmux#get_variable('pane_id')
 
   if str2nr(tmux#get_variable('window_panes')) < 2
     let l:test_pane = tmux#split_window({
@@ -79,5 +80,5 @@ func! editor#mappings#test() abort
     call tmux#send_keys('^L', l:cmd, '^M')
   endif
 
-  call tmux#select_pane(tmux#get_variable('pane_id'))
+  call tmux#select_pane(l:code_pane)
 endfunc
