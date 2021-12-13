@@ -69,11 +69,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1638766459,
-        "narHash": "sha256-bJWcolw1BjB42+m7XNGD0+XL8Yn9uQUW+xuwBZ8wmdo=",
+        "lastModified": 1639364803,
+        "narHash": "sha256-nzv9XRgU9bgTuirvpvbFVmyJoG4ZIsRHmDx4myxAw4I=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2aaf7277718841775d6c69d7db86e8e8e1d1f678",
+        "rev": "32e3ee5193cf45b988009a0fd34142c9e3e15367",
         "type": "github"
       },
       "original": {
@@ -115,11 +115,11 @@
     "unison-vim": {
       "flake": false,
       "locked": {
-        "lastModified": 1638740159,
-        "narHash": "sha256-pin8UNsSesSmXgOtxbaCeeOazBjBMwooq+CRJ54rdAQ=",
+        "lastModified": 1639200517,
+        "narHash": "sha256-FwYUg/OJmllaZpylSySCzo+TuKWLe4y2wb/yG3ig71E=",
         "owner": "unisonweb",
         "repo": "unison",
-        "rev": "effaba186a06b420d553e7efe6f8e456e37bacb9",
+        "rev": "4faca1cef859489f9c139df5e73fe124fc97376b",
         "type": "github"
       },
       "original": {
