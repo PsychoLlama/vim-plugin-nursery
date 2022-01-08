@@ -1,25 +1,17 @@
 name: Update Plugins
 on:
-  push:
-    branches: main
-    paths: '3rd-party/**'
   schedule:
     - cron: '0 5 * * 1' # Every Monday at 5am
 
 jobs:
   update:
     runs-on: ubuntu-latest
-    container:
-      image: nixos/nix:latest
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - run: nix-env --install --attr nixpkgs.nixUnstable nixpkgs.git
-      - run: |
-          tee -a /etc/nix/nix.conf << EOF
-          experimental-features = nix-command flakes
-          EOF
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+      - uses: cachix/install-nix-action@v16
       - run: ./bin/commit-lockfile-changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

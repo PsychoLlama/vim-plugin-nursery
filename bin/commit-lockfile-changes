@@ -1,4 +1,10 @@
-#!/usr/bin/env sh
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash -p nixUnstable -p git
+set -euo pipefail
+
+# shellcheck shell=bash
+# vim: ft=bash
+
 git config user.name 'Lockfile Bot'
 git config user.email 'JesseTheGibson+ghbot@gmail.com'
 nix flake update --commit-lock-file
