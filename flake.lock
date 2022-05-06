@@ -20,11 +20,11 @@
     "further-vim": {
       "flake": false,
       "locked": {
-        "lastModified": 1594177442,
-        "narHash": "sha256-kninGuoM3Q6TvRrdsVa+PMTai938jeI28/JaOQOCqQM=",
+        "lastModified": 1651868823,
+        "narHash": "sha256-LREfRfcRdfvtMCnsxPPv+T53Wpbr5qYM+QAz/bf1dHg=",
         "owner": "PsychoLlama",
         "repo": "further.vim",
-        "rev": "2679c53d108381444b86d9fdcbbaa2833cd0235e",
+        "rev": "6e63187394e8102a742fdbbcb97947848d549c79",
         "type": "github"
       },
       "original": {
