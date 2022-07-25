@@ -59,7 +59,6 @@
             inherit further-vim teleport-vim alternaut-vim navitron-nvim
               vim-nand2tetris nginx-vim;
             unison-vim = "${unison-vim}/editor-support/vim";
-            stacktrace-vim = "${self}/plugins/stacktrace.vim";
           };
 
     in {

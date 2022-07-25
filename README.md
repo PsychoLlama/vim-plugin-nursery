@@ -1,5 +1,5 @@
 # Vim Plugin Nursery
-A custom nix channel serving experimental vim plugins.
+[DEPRECATED] A custom nix channel serving experimental vim plugins.
 
 ## Purpose
 One of my few joys is writing vim plugins, but not every idea is a good one. I need a place to experiment without fully committing to a new repository.
@@ -31,9 +31,6 @@ The flake lockfile updates every Monday.
       configure.packages.personal.start = [
         # Optional: The overlay adds all plugins from the nursery to nixpkgs.vimPlugins.
         vimPlugins.further-vim
-
-        # Or, pull them off `packages` instead.
-        nursery.packages.${system}.stacktrace-vim
       ];
     };
   };
